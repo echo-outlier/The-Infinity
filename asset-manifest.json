@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/The-Infinite/static/css/main.90e38a94.chunk.css",
+    "main.js": "/The-Infinite/static/js/main.e720d551.chunk.js",
+    "main.js.map": "/The-Infinite/static/js/main.e720d551.chunk.js.map",
+    "runtime-main.js": "/The-Infinite/static/js/runtime-main.456076e7.js",
+    "runtime-main.js.map": "/The-Infinite/static/js/runtime-main.456076e7.js.map",
+    "static/css/2.7fc9bc2b.chunk.css": "/The-Infinite/static/css/2.7fc9bc2b.chunk.css",
+    "static/js/2.b558dc86.chunk.js": "/The-Infinite/static/js/2.b558dc86.chunk.js",
+    "static/js/2.b558dc86.chunk.js.map": "/The-Infinite/static/js/2.b558dc86.chunk.js.map",
+    "index.html": "/The-Infinite/index.html",
+    "static/css/2.7fc9bc2b.chunk.css.map": "/The-Infinite/static/css/2.7fc9bc2b.chunk.css.map",
+    "static/css/main.90e38a94.chunk.css.map": "/The-Infinite/static/css/main.90e38a94.chunk.css.map",
+    "static/js/2.b558dc86.chunk.js.LICENSE.txt": "/The-Infinite/static/js/2.b558dc86.chunk.js.LICENSE.txt",
+    "static/media/18-01.1d818a8e.svg": "/The-Infinite/static/media/18-01.1d818a8e.svg",
+    "static/media/Contact.css": "/The-Infinite/static/media/25notxt-01.51673695.jpg",
+    "static/media/game.0c10c1c2.mp4": "/The-Infinite/static/media/game.0c10c1c2.mp4",
+    "static/media/game.7d3a8646.jpg": "/The-Infinite/static/media/game.7d3a8646.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.456076e7.js",
+    "static/css/2.7fc9bc2b.chunk.css",
+    "static/js/2.b558dc86.chunk.js",
+    "static/css/main.90e38a94.chunk.css",
+    "static/js/main.e720d551.chunk.js"
+  ]
+}
