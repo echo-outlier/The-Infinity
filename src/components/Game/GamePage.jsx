@@ -5,6 +5,8 @@ import Searchbar from "../Searchbar/searchbar";
 import Image from "../../assets/images/game.jpg";
 import AuthContext from "../../context/AuthContext";
 import GameHelper from "./GameHelper";
+import ScrollToTop from "../../ScrollToTop";
+
 const Heading = styled.div`
   padding: 20px 0;
   width: 100%;
@@ -311,6 +313,7 @@ const GamePage = () => {
 
   return (
     <React.Fragment>
+      <ScrollToTop />
       <Background>
         <Backdrop>
           <Heading>THE INFINITE ENCOUNTERS</Heading>

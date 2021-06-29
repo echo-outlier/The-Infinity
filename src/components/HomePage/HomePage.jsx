@@ -5,6 +5,9 @@ import { VideoContainer, BackDrop, Heading } from "./styles";
 import NavBar from "../NavBar/navbar";
 import Typed from "typed.js";
 import game from "../../assets/video/game.mp4";
+import { Link } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
+import ScrollToTop from "../../ScrollToTop";
 
 const HomePage = () => {
   const [click, setclick] = useState(false);
@@ -34,15 +37,18 @@ const HomePage = () => {
     const home = document.getElementById("home");
     const observer1 = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          document.getElementById("navbar").classList.add("animate");
-        } else {
-          document.getElementById("navbar").classList.remove("animate");
+        if (entry.intersectionRatio > 0) {
+          if (!entry.isIntersecting) {
+            document.getElementById("navbar").classList.add("animate");
+          } else {
+            document.getElementById("navbar").classList.remove("animate");
+          }
         }
       });
     }, options);
     observer1.observe(home);
   }, []);
+
   return (
     <React.Fragment>
       <VideoContainer name="home" id="home">

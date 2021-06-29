@@ -22,10 +22,8 @@ const CardDiv = styled.div`
   gap: 20px;
   margin: 0 auto;
   margin-bottom: 50px;
-  /* margin-top: 20px; */
   div:last-child {
     justify-self: flex-start;
-    /* margin-right:500px; */
   }
   a {
     color: black;
