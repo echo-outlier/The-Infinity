@@ -4,6 +4,8 @@ import Cards from "../Cards/Cards";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Aos from "aos";
+import { isMobile } from "react-device-detect";
+import { useState } from "react";
 
 const GameContainer = styled.div`
   width: 100%;
@@ -114,19 +116,28 @@ export const Search = styled.button`
 `;
 
 const Game = () => {
+  const { GameData } = useContext(AuthContext);
+  const [cardnumber, setcardnumber] = useState(21);
+
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
-  const { GameData } = useContext(AuthContext);
+  useEffect(() => {
+    console.log("CHECKING THE MOBILILTY");
+    if (isMobile) {
+      setcardnumber(9);
+    } else {
+    }
+  });
 
   return (
     <GameContainer name="games" id="games">
       <H1>Top Trending Games.</H1>
       <CardDiv>
         {GameData
-          ? GameData.slice(0, 21).map((game) => {
+          ? GameData.slice(0, cardnumber).map((game) => {
               return (
-                <React.Fragment>
+                <React.Fragment key={game.herf_link}>
                   <a target="_blank" href={game.href_link}>
                     <Cards
                       title={game.name}

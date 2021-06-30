@@ -3,6 +3,7 @@ import AuthContext from "../../context/AuthContext";
 import Cards from "../Cards/Cards";
 import styled from "styled-components";
 import Aos from "aos";
+import { Games } from "@material-ui/icons";
 const GameContainer = styled.div`
   width: 100%;
   display: flex;
@@ -97,19 +98,21 @@ export const Search = styled.button`
   }
 `;
 
-const Game = () => {
+const Game = (props) => {
   const { GameData } = useContext(AuthContext);
+  console.log("GAMEDATA", GameData.length);
+  console.log("END", props.end);
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
 
   return (
-    <GameContainer name="games" id="games">
+    <GameContainer>
       <CardDiv>
         {GameData
-          ? GameData.slice(0, 21).map((game) => {
+          ? GameData.slice(0, props.end).map((game) => {
               return (
-                <React.Fragment>
+                <React.Fragment key={game.href_link}>
                   <a target="_blank" href={game.href_link}>
                     <Cards
                       title={game.name}

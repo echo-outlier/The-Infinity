@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Searchbar from "../Searchbar/searchbar";
@@ -6,6 +6,7 @@ import Image from "../../assets/images/game.jpg";
 import AuthContext from "../../context/AuthContext";
 import GameHelper from "./GameHelper";
 import ScrollToTop from "../../ScrollToTop";
+import { ChangeHistoryOutlined } from "@material-ui/icons";
 
 const Heading = styled.div`
   padding: 20px 0;
@@ -141,6 +142,7 @@ const GamePage = () => {
   const [arcade1, setArcade] = useState(false);
   const [puzzle1, setPuzzle] = useState(false);
   const [shooting1, setShooting] = useState(false);
+  const [end, setend] = useState(20);
 
   const gameDataPerCategoryHandler = (temp) => {
     const filterGamesByCategory = [];
@@ -310,6 +312,28 @@ const GamePage = () => {
     setCategory(temp);
     gameDataPerCategoryHandler(temp);
   };
+  useEffect(() => {
+    const changend = (End) => {
+      console.log(End)
+      setend(20 + End);
+    };
+    const onScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - 200
+      ) {
+        console.log("changed");
+        changend(end);
+      }
+      // console.log(
+      //   window.innerHeight,
+      //   window.scrollY,
+      //   document.body.offsetHeight
+      // );
+    };
+
+    window.addEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <React.Fragment>
@@ -325,7 +349,7 @@ const GamePage = () => {
           <Searchbar />
           <Options>
             <input type="checkbox" id="action" onClick={actionChangeHandler} />
-            <label class="whatever" for="action">
+            <label className="whatever" htmlFor="action">
               Action
             </label>
             <input
@@ -333,15 +357,15 @@ const GamePage = () => {
               id="adventure"
               onClick={adventureChangeHandler}
             />
-            <label class="whatever" for="adventure">
+            <label className="whatever" htmlFor="adventure">
               Adventure
             </label>
             <input type="checkbox" id="arcade" onClick={arcadeChangeHandler} />
-            <label class="whatever" for="arcade">
+            <label className="whatever" htmlFor="arcade">
               Arcade
             </label>
             <input type="checkbox" id="puzzle" onClick={puzzleChangeHandler} />
-            <label class="whatever" for="puzzle">
+            <label className="whatever" htmlFor="puzzle">
               Puzzle
             </label>
             <input
@@ -349,13 +373,13 @@ const GamePage = () => {
               id="shooting"
               onClick={shootingChangeHandler}
             />
-            <label class="whatever" for="shooting">
+            <label className="whatever" htmlFor="shooting">
               Shooting
             </label>
             <input type="checkbox" id="" />
           </Options>
           <Result>
-            <GameHelper />
+            <GameHelper end={end} />
           </Result>
         </Backdrop>
       </Background>
