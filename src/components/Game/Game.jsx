@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Aos from "aos";
 import { isMobile } from "react-device-detect";
 import { useState } from "react";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const GameContainer = styled.div`
   width: 100%;
@@ -118,24 +119,32 @@ export const Search = styled.button`
 const Game = () => {
   const { GameData } = useContext(AuthContext);
   const [cardnumber, setcardnumber] = useState(21);
+  const [emptyarr, setemptyarr] = useState([]);
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
+
   useEffect(() => {
+    const arr = [];
+    for (let i = 0; i < 21; i++) {
+      arr.push(i);
+    }
+    setemptyarr(arr);
     console.log("CHECKING THE MOBILILTY");
     if (isMobile) {
       setcardnumber(9);
     } else {
     }
-  });
+  }, []);
 
   return (
     <GameContainer name="games" id="games">
       <H1>Top Trending Games.</H1>
       <CardDiv>
-        {GameData
+        {GameData.length !== 0
           ? GameData.slice(0, cardnumber).map((game) => {
+              console.log(game.href_link);
               return (
                 <React.Fragment key={game.herf_link}>
                   <a target="_blank" href={game.href_link}>
@@ -149,11 +158,17 @@ const Game = () => {
                 </React.Fragment>
               );
             })
-          : null}
+          : emptyarr.map((data) => {
+              return (
+                <React.Fragment key={data}>
+                  <Skeleton variant="rect" width={300} height={70} />
+                </React.Fragment>
+              );
+            })}
       </CardDiv>
       <SearchDiv>
         <Link to="GamePage">
-          <Search data-aos="fade-up">Search More</Search>
+          <Search>Search More</Search>
         </Link>
       </SearchDiv>
     </GameContainer>

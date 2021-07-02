@@ -1,9 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import Cards from "../Cards/Cards";
 import styled from "styled-components";
 import Aos from "aos";
-import { Games } from "@material-ui/icons";
+import Skeleton from "@material-ui/lab/Skeleton";
+import { makeStyles } from "@material-ui/core";
+
 const GameContainer = styled.div`
   width: 100%;
   display: flex;
@@ -21,10 +23,8 @@ const CardDiv = styled.div`
   gap: 20px;
   margin: 0 auto;
   margin-bottom: 50px;
-  /* margin-top: 20px; */
   div:last-child {
     justify-self: flex-start;
-    /* margin-right:500px; */
   }
   a {
     color: black;
@@ -98,18 +98,40 @@ export const Search = styled.button`
   }
 `;
 
+const useStyles = makeStyles({
+  skeleton: {
+    backgroundColor: "#353535",
+    borderRadius: "5px",
+  },
+});
+
 const Game = (props) => {
   const { GameData } = useContext(AuthContext);
-  console.log("GAMEDATA", GameData.length);
-  console.log("END", props.end);
+  const [emptyarr, setemptyarr] = useState([]);
+  const classes = useStyles();
+
+
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
 
+  useEffect(() => {
+    console.log(GameData);
+    const arr = [];
+    for (let i = 0; i < 21; i++) {
+      arr.push(i);
+    }
+    setemptyarr(arr);
+  }, []);
+  useEffect(() => {
+    console.log(GameData.length);
+    console.log(props.end);
+  }, [props.end, GameData]);
+
   return (
     <GameContainer>
       <CardDiv>
-        {GameData
+        {GameData.length !== 0
           ? GameData.slice(0, props.end).map((game) => {
               return (
                 <React.Fragment key={game.href_link}>
@@ -124,7 +146,18 @@ const Game = (props) => {
                 </React.Fragment>
               );
             })
-          : null}
+          : emptyarr.map((data) => {
+              return (
+                <React.Fragment key={data}>
+                  <Skeleton
+                    className={classes.skeleton}
+                    variant="rect"
+                    width={300}
+                    height={70}
+                  />
+                </React.Fragment>
+              );
+            })}
       </CardDiv>
     </GameContainer>
   );
