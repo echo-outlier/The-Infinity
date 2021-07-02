@@ -89,10 +89,8 @@ const Cards = (props) => {
     Aos.init({ duration: 1000 });
   }, []);
   const error = (e) => {
-    console.log("hello");
     e.target.src =
       "https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png";
-
   };
   return (
     <Card className="fade-up">

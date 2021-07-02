@@ -147,9 +147,7 @@ const GamePage = () => {
   const OptionsChangeHandler = (event) => {
     document.querySelectorAll(".options").forEach((option) => {
       if (option == event.target) {
-        console.log(event.target);
         event.target.classList.toggle("check");
-        console.log(event.target);
       }
     });
 
@@ -163,7 +161,6 @@ const GamePage = () => {
     const filterGamesByCategory = [];
     var flag = 0;
     Object.keys(temp).map((category) => {
-      console.log(temp[category]);
       if (temp[category]) {
         const cat = category[0].toUpperCase() + category.slice(1);
         flag = 1;
@@ -183,7 +180,6 @@ const GamePage = () => {
   useEffect(() => {
     const temp = { ...category };
     Object.keys(temp).map((category) => {
-      console.log(temp[category]);
       if (temp[category]) {
         document.getElementById(`${category}`).classList.toggle("check");
       }
@@ -196,14 +192,8 @@ const GamePage = () => {
         window.innerHeight + window.scrollY >=
         document.body.offsetHeight - 100
       ) {
-        console.log("changed");
         setend((prevstate) => 20 + prevstate);
       }
-      // console.log(
-      //   window.innerHeight,
-      //   window.scrollY,
-      //   document.body.offsetHeight
-      // );
     };
 
     window.addEventListener("scroll", onScroll);

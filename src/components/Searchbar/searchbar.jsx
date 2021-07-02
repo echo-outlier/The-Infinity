@@ -48,7 +48,6 @@ const Searchbar = (props) => {
     const filterGamesByCategory = [];
     var flag = 0;
     Object.keys(temp).map((category) => {
-      console.log(temp[category]);
       if (temp[category]) {
         const cat = category[0].toUpperCase() + category.slice(1);
         flag = 1;
