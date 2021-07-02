@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/The-Infinity/static/css/main.263f0fd3.chunk.css",
-    "main.js": "/The-Infinity/static/js/main.d67ce7d4.chunk.js",
-    "main.js.map": "/The-Infinity/static/js/main.d67ce7d4.chunk.js.map",
+    "main.js": "/The-Infinity/static/js/main.efd11754.chunk.js",
+    "main.js.map": "/The-Infinity/static/js/main.efd11754.chunk.js.map",
     "runtime-main.js": "/The-Infinity/static/js/runtime-main.90219622.js",
     "runtime-main.js.map": "/The-Infinity/static/js/runtime-main.90219622.js.map",
     "static/css/2.7fc9bc2b.chunk.css": "/The-Infinity/static/css/2.7fc9bc2b.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.7fc9bc2b.chunk.css",
     "static/js/2.3855ad1b.chunk.js",
     "static/css/main.263f0fd3.chunk.css",
-    "static/js/main.d67ce7d4.chunk.js"
+    "static/js/main.efd11754.chunk.js"
   ]
 }
