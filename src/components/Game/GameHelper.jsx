@@ -123,10 +123,11 @@ const Game = (props) => {
     }
     setemptyarr(arr);
   }, []);
-  useEffect(() => {
-    console.log(GameData.length);
-    console.log(props.end);
-  }, [props.end, GameData]);
+
+  // useEffect(() => {
+  //   console.log(GameData.length);
+  //   console.log(props.end);
+  // }, [props.end, GameData]);
 
   return (
     <GameContainer>

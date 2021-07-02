@@ -145,7 +145,7 @@ const GamePage = () => {
   const [end, setend] = useState(20);
 
   const OptionsChangeHandler = (event) => {
-    const options = document.querySelectorAll(".options").forEach((option) => {
+    document.querySelectorAll(".options").forEach((option) => {
       if (option == event.target) {
         console.log(event.target);
         event.target.classList.toggle("check");
